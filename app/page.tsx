@@ -1,6 +1,7 @@
 'use client';
 import { ArrowRight, Asterisk, Copy, Feather, Layers3, X } from 'lucide-react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as React from 'react';
 import { useState } from 'react';
 import { Input } from '../registry/loam/ui/input';
 import { Switch } from '../registry/loam/ui/switch';
@@ -8,9 +9,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../registry/loam/ui/ta
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../registry/loam/ui/accordion';
 
 const installCommand = 'npx shadcn@latest add https://loam-ui.chalky-dill-5956.chatgpt.site/r/button.json';
-function DemoButton({ children, quiet = false }: { children: React.ReactNode; quiet?: boolean }) {
-  return <button className={quiet ? 'demo-button demo-button--quiet' : 'demo-button'}>{children}</button>;
-}
+type DemoButtonProps = React.ComponentPropsWithoutRef<'button'> & { quiet?: boolean };
+const DemoButton = React.forwardRef<HTMLButtonElement, DemoButtonProps>(({ children, quiet = false, className = '', ...props }, ref) => (
+  <button ref={ref} className={`${quiet ? 'demo-button demo-button--quiet' : 'demo-button'} ${className}`} {...props}>{children}</button>
+));
+DemoButton.displayName = 'DemoButton';
 export default function Home() {
   const [copied, setCopied] = useState(false);
   function copyInstall() { void navigator.clipboard.writeText(installCommand); setCopied(true); window.setTimeout(() => setCopied(false), 1600); }
