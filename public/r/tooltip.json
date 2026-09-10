@@ -5,8 +5,7 @@
   "description": "A compact ink annotation for contextual guidance.",
   "dependencies": [
     "@radix-ui/react-tooltip",
-    "clsx",
-    "tw-animate-css"
+    "clsx"
   ],
   "registryDependencies": [
     "loam-theme"

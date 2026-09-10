@@ -1,0 +1,3 @@
+import { clsx } from 'clsx'
+const Loader=({className,label='Growing'}:{className?:string;label?:string})=><span role="status" className={clsx('inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[.14em]',className)}><span className="relative size-5"><i className="absolute bottom-0 left-1/2 h-4 w-px origin-bottom -translate-x-1/2 animate-[loam-grow_1.2s_ease-in-out_infinite] bg-current motion-reduce:animate-none"/><i className="absolute left-1/2 top-1 size-2 -translate-x-0.5 -rotate-45 rounded-[100%_0] border border-current"/></span>{label}<style>{`@keyframes loam-grow{0%,100%{transform:translateX(-50%) scaleY(.45);opacity:.5}50%{transform:translateX(-50%) scaleY(1);opacity:1}}`}</style></span>
+export { Loader }

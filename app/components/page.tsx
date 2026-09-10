@@ -1,0 +1,3 @@
+import Link from 'next/link'
+import { components } from '../../lib/components'
+export default function ComponentsPage(){return <main><nav className="nav shell"><Link className="brand" href="/"><span className="brand-flower">✤</span>LOAM</Link><Link href="/">Back to field library</Link></nav><section className="docs-index shell"><span className="kicker">COMPONENT INDEX / {String(components.length).padStart(2,'0')}</span><h1>Every object,<br/><em>in the open.</em></h1><div className="docs-list">{components.map(([slug,name,description],i)=><Link href={`/components/${slug}`} key={slug}><span>{String(i+1).padStart(2,'0')}</span><strong>{name}</strong><p>{description}</p><b>↗</b></Link>)}</div></section></main>}

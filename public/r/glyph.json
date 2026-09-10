@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glyph",
+  "title": "Loam Glyphs",
+  "description": "A compact set of botanical and editorial signature marks.",
+  "dependencies": [
+    "clsx"
+  ],
+  "registryDependencies": [
+    "loam-theme"
+  ],
+  "files": [
+    {
+      "path": "registry/loam/ui/glyph.tsx",
+      "content": "import * as React from 'react'\nimport { clsx } from 'clsx'\nconst marks={seed:'●',sprout:'♧',sun:'⊹',ripple:'≋',bloom:'✤'} as const\ntype LoamGlyphProps=React.HTMLAttributes<HTMLSpanElement>&{name:keyof typeof marks}\nconst LoamGlyph=React.forwardRef<HTMLSpanElement,LoamGlyphProps>(({name,className,...props},ref)=><span ref={ref} aria-hidden=\"true\" className={clsx('inline-grid size-[1em] place-items-center font-serif leading-none',className)} {...props}>{marks[name]}</span>)\nLoamGlyph.displayName='LoamGlyph'\nexport { LoamGlyph, type LoamGlyphProps }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
