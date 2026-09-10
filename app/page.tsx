@@ -2,6 +2,10 @@
 import { ArrowRight, Asterisk, Copy, Feather, Layers3, X } from 'lucide-react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { useState } from 'react';
+import { Input } from '../registry/loam/ui/input';
+import { Switch } from '../registry/loam/ui/switch';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../registry/loam/ui/tabs';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../registry/loam/ui/accordion';
 
 const installCommand = 'npx shadcn@latest add https://loam-ui.chalky-dill-5956.chatgpt.site/r/button.json';
 function DemoButton({ children, quiet = false }: { children: React.ReactNode; quiet?: boolean }) {
@@ -36,6 +40,12 @@ export default function Home() {
         <article className="component-card clay"><div className="card-top"><span>DIALOG</span><span>03</span></div><div className="card-stage">
           <DialogPrimitive.Root><DialogPrimitive.Trigger asChild><DemoButton quiet>Open a thought <Layers3 size={16}/></DemoButton></DialogPrimitive.Trigger><DialogPrimitive.Portal><DialogPrimitive.Overlay className="dialog-overlay"/><DialogPrimitive.Content className="dialog-content"><DialogPrimitive.Close className="dialog-close" aria-label="Close dialog"><X size={16}/></DialogPrimitive.Close><span className="kicker">A SMALL INTERRUPTION</span><DialogPrimitive.Title>Ideas need a little room.</DialogPrimitive.Title><DialogPrimitive.Description>Loam dialogs arrive softly, keep focus where it belongs, and leave without making a scene.</DialogPrimitive.Description><DialogPrimitive.Close asChild><button className="demo-button">That feels right</button></DialogPrimitive.Close></DialogPrimitive.Content></DialogPrimitive.Portal></DialogPrimitive.Root>
         </div><p>Focused moments with a gentle entrance.</p></article>
+      </div>
+      <div className="component-grid-more">
+        <article className="component-card paper wide"><div className="card-top"><span>INPUT</span><span>04</span></div><div className="card-stage form-stage"><label htmlFor="field-note">Name your field note</label><Input id="field-note" placeholder="A thought worth keeping…"/><span>Give the idea a small, memorable name.</span></div><p>A text field that rises gently into focus.</p></article>
+        <article className="component-card leaf"><div className="card-top"><span>SWITCH</span><span>05</span></div><div className="card-stage switch-stage"><div><span>Garden sounds</span><small>Leaves, rain, and distant birds</small></div><Switch aria-label="Toggle garden sounds" defaultChecked/></div><p>A physical toggle with a spring in its step.</p></article>
+        <article className="component-card clay-soft"><div className="card-top"><span>TABS</span><span>06</span></div><div className="card-stage tabs-stage"><Tabs defaultValue="seed"><TabsList><TabsTrigger value="seed">Seed</TabsTrigger><TabsTrigger value="tend">Tend</TabsTrigger><TabsTrigger value="grow">Grow</TabsTrigger></TabsList><TabsContent value="seed">Begin with the smallest useful thing.</TabsContent><TabsContent value="tend">Return often. Adjust with care.</TabsContent><TabsContent value="grow">Let the system expand naturally.</TabsContent></Tabs></div><p>Navigation with a clear, raised place to stand.</p></article>
+        <article className="component-card ink"><div className="card-top"><span>ACCORDION</span><span>07</span></div><div className="card-stage accordion-stage"><Accordion type="single" collapsible defaultValue="one"><AccordionItem value="one"><AccordionTrigger>Why copy the code?</AccordionTrigger><AccordionContent>So every detail stays yours to understand, reshape, and ship.</AccordionContent></AccordionItem><AccordionItem value="two"><AccordionTrigger>Does motion adapt?</AccordionTrigger><AccordionContent>Yes. Every interaction respects reduced-motion preferences.</AccordionContent></AccordionItem></Accordion></div><p>Disclosure that opens like the page of a notebook.</p></article>
       </div>
     </section>
     <section className="principles shell" id="principles"><div className="principle-intro"><span className="kicker">02 / UNDER THE SURFACE</span><h2>A system with<br/><em>natural rhythm.</em></h2></div><div className="principle-list">{[
