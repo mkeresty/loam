@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "loam",
+  "homepage": "https://loam-ui.chalky-dill-5956.chatgpt.site",
+  "items": [
+    {
+      "name": "loam-theme",
+      "type": "registry:theme",
+      "title": "Loam Design Tokens",
+      "description": "Warm natural surfaces, tactile depth, typography, radii, and motion tokens.",
+      "cssVars": {
+        "theme": { "font-serif": "Georgia, ui-serif, serif" },
+        "light": { "loam-paper": "#f4f0e6", "loam-surface": "#fffaf0", "loam-cream": "#fffaf0", "loam-ink": "#233127", "loam-ink-soft": "#536055", "loam-moss": "#304f3c", "loam-clay": "#c8785d", "loam-butter": "#eecb67", "loam-line": "rgba(35, 49, 39, 0.2)", "loam-depth-dark": "#17291e", "loam-depth-warm": "#b9ad98", "loam-clay-dark": "#8d4f3c", "loam-focus": "#eecb67", "loam-radius-sm": "0.65rem", "loam-radius-md": "1.15rem", "loam-radius-lg": "2rem", "loam-ease-spring": "cubic-bezier(.2,.9,.25,1.25)" },
+        "dark": { "loam-paper": "#18221b", "loam-surface": "#243229", "loam-cream": "#f4f0e6", "loam-ink": "#f2ebdc", "loam-ink-soft": "#b6c0b5", "loam-moss": "#50775c", "loam-clay": "#df9277", "loam-butter": "#f2d67f", "loam-line": "rgba(244, 240, 230, 0.22)", "loam-depth-dark": "#0e1510", "loam-depth-warm": "#766d5e", "loam-clay-dark": "#7d4433", "loam-focus": "#f2d67f" }
+      }
+    },
+    { "name":"button", "type":"registry:ui", "title":"Button", "description":"A tactile button with satisfying physical press states.", "dependencies":["class-variance-authority","clsx"], "registryDependencies":["loam-theme"], "files":[{"path":"registry/loam/ui/button.tsx","type":"registry:ui"}] },
+    { "name":"card", "type":"registry:ui", "title":"Card", "description":"A layered editorial surface with a subtle lift interaction.", "dependencies":["clsx"], "registryDependencies":["loam-theme"], "files":[{"path":"registry/loam/ui/card.tsx","type":"registry:ui"}] },
+    { "name":"dialog", "type":"registry:ui", "title":"Dialog", "description":"An accessible, softly animated focus layer.", "dependencies":["@radix-ui/react-dialog","lucide-react","clsx","tw-animate-css"], "registryDependencies":["loam-theme"], "files":[{"path":"registry/loam/ui/dialog.tsx","type":"registry:ui"}] }
+  ]
+}
