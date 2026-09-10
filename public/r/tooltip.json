@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "A compact ink annotation for contextual guidance.",
+  "dependencies": [
+    "@radix-ui/react-tooltip",
+    "clsx",
+    "tw-animate-css"
+  ],
+  "registryDependencies": [
+    "loam-theme"
+  ],
+  "files": [
+    {
+      "path": "registry/loam/ui/tooltip.tsx",
+      "content": "'use client'\nimport * as React from 'react'\nimport * as TooltipPrimitive from '@radix-ui/react-tooltip'\nimport { clsx } from 'clsx'\nconst TooltipProvider = TooltipPrimitive.Provider\nconst Tooltip = TooltipPrimitive.Root\nconst TooltipTrigger = TooltipPrimitive.Trigger\nconst TooltipContent = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Content>, React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>>(({ className, sideOffset = 8, ...props }, ref) => <TooltipPrimitive.Portal><TooltipPrimitive.Content ref={ref} sideOffset={sideOffset} className={clsx('z-50 max-w-64 rounded-[var(--loam-radius-sm)] border border-[var(--loam-ink)] bg-[var(--loam-ink)] px-3 py-2 font-serif text-sm leading-snug text-[var(--loam-paper)] data-[state=delayed-open]:animate-in data-[state=closed]:animate-out data-[state=delayed-open]:fade-in data-[state=closed]:fade-out data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1 motion-reduce:animate-none', className)} {...props}/></TooltipPrimitive.Portal>)\nTooltipContent.displayName = TooltipPrimitive.Content.displayName\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

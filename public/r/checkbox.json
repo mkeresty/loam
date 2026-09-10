@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "title": "Checkbox",
+  "description": "A flat confirmation control with a concise drawn check transition.",
+  "dependencies": [
+    "@radix-ui/react-checkbox",
+    "lucide-react",
+    "clsx",
+    "tw-animate-css"
+  ],
+  "registryDependencies": [
+    "loam-theme"
+  ],
+  "files": [
+    {
+      "path": "registry/loam/ui/checkbox.tsx",
+      "content": "'use client'\nimport * as React from 'react'\nimport * as CheckboxPrimitive from '@radix-ui/react-checkbox'\nimport { Check } from 'lucide-react'\nimport { clsx } from 'clsx'\nconst Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>>(({ className, ...props }, ref) => <CheckboxPrimitive.Root ref={ref} className={clsx('peer grid size-6 shrink-0 place-items-center rounded-[var(--loam-radius-sm)] border border-[var(--loam-ink)] bg-[var(--loam-surface)] text-[var(--loam-cream)] outline-none transition-colors duration-200 data-[state=checked]:bg-[var(--loam-ink)] focus-visible:ring-2 focus-visible:ring-[var(--loam-focus)] focus-visible:ring-offset-3 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none', className)} {...props}><CheckboxPrimitive.Indicator className=\"data-[state=checked]:animate-in data-[state=checked]:zoom-in-75 motion-reduce:animate-none\"><Check className=\"size-4\" strokeWidth={2.4}/></CheckboxPrimitive.Indicator></CheckboxPrimitive.Root>)\nCheckbox.displayName = CheckboxPrimitive.Root.displayName\nexport { Checkbox }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
