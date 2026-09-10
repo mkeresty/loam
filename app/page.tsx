@@ -1,60 +1,30 @@
 'use client';
-import { ArrowRight, Asterisk, Copy, Feather, Layers3, X } from 'lucide-react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as React from 'react';
-import { useState } from 'react';
+import { ArrowRightIcon } from '@animateicons/react/lucide/arrow-right-icon';
+import { CopyIcon } from '@animateicons/react/lucide/copy-icon';
+import { MoonStarIcon } from '@animateicons/react/lucide/moon-star-icon';
+import { SparklesIcon } from '@animateicons/react/lucide/sparkles-icon';
+import { SunIcon } from '@animateicons/react/lucide/sun-icon';
+import { Layers, X } from 'lucide-react';
+import { Accordion,AccordionContent,AccordionItem,AccordionTrigger } from '../registry/loam/ui/accordion';
 import { Input } from '../registry/loam/ui/input';
 import { Switch } from '../registry/loam/ui/switch';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../registry/loam/ui/tabs';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../registry/loam/ui/accordion';
-
-const installCommand = 'npx shadcn@latest add https://loam-ui.chalky-dill-5956.chatgpt.site/r/button.json';
-type DemoButtonProps = React.ComponentPropsWithoutRef<'button'> & { quiet?: boolean };
-const DemoButton = React.forwardRef<HTMLButtonElement, DemoButtonProps>(({ children, quiet = false, className = '', ...props }, ref) => (
-  <button ref={ref} className={`${quiet ? 'demo-button demo-button--quiet' : 'demo-button'} ${className}`} {...props}>{children}</button>
-));
-DemoButton.displayName = 'DemoButton';
-export default function Home() {
-  const [copied, setCopied] = useState(false);
-  function copyInstall() { void navigator.clipboard.writeText(installCommand); setCopied(true); window.setTimeout(() => setCopied(false), 1600); }
-  return <main>
-    <nav className="nav shell" aria-label="Main navigation">
-      <a className="brand" href="#top" aria-label="Loam home"><span className="brand-mark"><Asterisk size={18} strokeWidth={2.5}/></span><span>LOAM</span></a>
-      <div className="nav-links"><a href="#components">Components</a><a href="#principles">Principles</a><a href="/r/registry.json">Registry</a></div>
-      <a className="nav-cta" href="#install">Get started <ArrowRight size={15}/></a>
-    </nav>
-    <section className="hero shell" id="top">
-      <div className="eyebrow"><span/> An open component experiment</div>
-      <h1>Interfaces with<br/><em>something to say.</em></h1>
-      <p className="hero-copy">A copy-paste React component library for expressive products—shaped by print, natural materials, and the satisfying physics of real objects.</p>
-      <div className="hero-actions"><a className="demo-button hero-primary" href="#components">Explore components <ArrowRight size={17}/></a><a className="text-link" href="#install">Read the field notes <span>↘</span></a></div>
-      <div className="specimen" aria-label="Interactive component specimen">
-        <div className="specimen-note note-one">built to feel<br/>good to use <span>↙</span></div><div className="specimen-note note-two">press it!</div>
-        <div className="button-stack"><DemoButton>Plant the idea <Feather size={17}/></DemoButton><DemoButton quiet>Keep exploring</DemoButton></div>
-        <div className="orbit orbit-one"/><div className="orbit orbit-two"/><Asterisk className="specimen-star" size={34}/>
-      </div>
-    </section>
-    <section className="marquee" aria-label="Design qualities"><div>TACTILE <Asterisk/> EDITORIAL <Asterisk/> CONSIDERED <Asterisk/> ALIVE <Asterisk/> TACTILE <Asterisk/> EDITORIAL</div></section>
-    <section className="components shell" id="components">
-      <div className="section-heading"><div><span className="kicker">01 / THE FIRST FORMS</span><h2>Small pieces,<br/><em>distinct character.</em></h2></div><p>Familiar primitives, tuned with depth, tempo, and a point of view. Own the code. Change every detail.</p></div>
-      <div className="component-grid">
-        <article className="component-card butter"><div className="card-top"><span>BUTTON</span><span>01</span></div><div className="card-stage"><DemoButton>Make something <ArrowRight size={16}/></DemoButton></div><p>A satisfying press, a small invitation.</p></article>
-        <article className="component-card moss"><div className="card-top"><span>CARD</span><span>02</span></div><div className="card-stage"><div className="mini-card"><span className="mini-tag">FIELD NOTE № 12</span><Feather size={26}/><h3>Leave room for<br/>the unexpected.</h3><div className="mini-line"/></div></div><p>Layered surfaces that lift when approached.</p></article>
-        <article className="component-card clay"><div className="card-top"><span>DIALOG</span><span>03</span></div><div className="card-stage">
-          <DialogPrimitive.Root><DialogPrimitive.Trigger asChild><DemoButton quiet>Open a thought <Layers3 size={16}/></DemoButton></DialogPrimitive.Trigger><DialogPrimitive.Portal><DialogPrimitive.Overlay className="dialog-overlay"/><DialogPrimitive.Content className="dialog-content"><DialogPrimitive.Close className="dialog-close" aria-label="Close dialog"><X size={16}/></DialogPrimitive.Close><span className="kicker">A SMALL INTERRUPTION</span><DialogPrimitive.Title>Ideas need a little room.</DialogPrimitive.Title><DialogPrimitive.Description>Loam dialogs arrive softly, keep focus where it belongs, and leave without making a scene.</DialogPrimitive.Description><DialogPrimitive.Close asChild><button className="demo-button">That feels right</button></DialogPrimitive.Close></DialogPrimitive.Content></DialogPrimitive.Portal></DialogPrimitive.Root>
-        </div><p>Focused moments with a gentle entrance.</p></article>
-      </div>
-      <div className="component-grid-more">
-        <article className="component-card paper wide"><div className="card-top"><span>INPUT</span><span>04</span></div><div className="card-stage form-stage"><label htmlFor="field-note">Name your field note</label><Input id="field-note" placeholder="A thought worth keeping…"/><span>Give the idea a small, memorable name.</span></div><p>A text field that rises gently into focus.</p></article>
-        <article className="component-card leaf"><div className="card-top"><span>SWITCH</span><span>05</span></div><div className="card-stage switch-stage"><div><span>Garden sounds</span><small>Leaves, rain, and distant birds</small></div><Switch aria-label="Toggle garden sounds" defaultChecked/></div><p>A physical toggle with a spring in its step.</p></article>
-        <article className="component-card clay-soft"><div className="card-top"><span>TABS</span><span>06</span></div><div className="card-stage tabs-stage"><Tabs defaultValue="seed"><TabsList><TabsTrigger value="seed">Seed</TabsTrigger><TabsTrigger value="tend">Tend</TabsTrigger><TabsTrigger value="grow">Grow</TabsTrigger></TabsList><TabsContent value="seed">Begin with the smallest useful thing.</TabsContent><TabsContent value="tend">Return often. Adjust with care.</TabsContent><TabsContent value="grow">Let the system expand naturally.</TabsContent></Tabs></div><p>Navigation with a clear, raised place to stand.</p></article>
-        <article className="component-card ink"><div className="card-top"><span>ACCORDION</span><span>07</span></div><div className="card-stage accordion-stage"><Accordion type="single" collapsible defaultValue="one"><AccordionItem value="one"><AccordionTrigger>Why copy the code?</AccordionTrigger><AccordionContent>So every detail stays yours to understand, reshape, and ship.</AccordionContent></AccordionItem><AccordionItem value="two"><AccordionTrigger>Does motion adapt?</AccordionTrigger><AccordionContent>Yes. Every interaction respects reduced-motion preferences.</AccordionContent></AccordionItem></Accordion></div><p>Disclosure that opens like the page of a notebook.</p></article>
-      </div>
-    </section>
-    <section className="principles shell" id="principles"><div className="principle-intro"><span className="kicker">02 / UNDER THE SURFACE</span><h2>A system with<br/><em>natural rhythm.</em></h2></div><div className="principle-list">{[
-      ['Depth, not decoration','Shadows describe how an object sits in space. Every layer has a reason.'],['Motion with manners','Springy where it rewards interaction. Quiet where content needs focus.'],['Warm by default','Paper, ink, moss, clay, and sun—tokens that begin somewhere human.']
-    ].map(([title,copy],index)=><div className="principle" key={title}><span>0{index+1}</span><div><h3>{title}</h3><p>{copy}</p></div></div>)}</div></section>
-    <section className="install shell" id="install"><span className="kicker">03 / TAKE IT WITH YOU</span><h2>Your code.<br/><em>Your garden.</em></h2><p>Install one component at a time with the shadcn CLI. No package lock-in, no mystery layer.</p><button className="command" onClick={copyInstall} aria-label="Copy install command"><code>{installCommand}</code><span><Copy size={15}/> {copied?'Copied':'Copy'}</span></button></section>
-    <footer className="shell"><a className="brand" href="#top"><span className="brand-mark"><Asterisk size={18}/></span> LOAM</a><p>Components for thoughtful digital work.</p><span>Made slowly · 2026</span></footer>
-  </main>;
-}
+import { Tabs,TabsContent,TabsList,TabsTrigger } from '../registry/loam/ui/tabs';
+const installCommand='npx shadcn@latest add https://loam-ui.chalky-dill-5956.chatgpt.site/r/button.json';
+type DemoButtonProps=React.ComponentPropsWithoutRef<'button'>&{quiet?:boolean};
+const DemoButton=React.forwardRef<HTMLButtonElement,DemoButtonProps>(({children,quiet,className='',...props},ref)=><button ref={ref} className={`demo-button ${quiet?'demo-button--quiet':''} ${className}`} {...props}>{children}</button>); DemoButton.displayName='DemoButton';
+function ThemeToggle({dark,onChange}:{dark:boolean;onChange:()=>void}){return <button className="theme-toggle" onClick={onChange} aria-label={`Use ${dark?'light':'dark'} theme`}><span className="theme-toggle-track"><span className="theme-toggle-thumb">{dark?<MoonStarIcon size={14}/>:<SunIcon size={14}/>}</span></span><span>{dark?'Night':'Day'}</span></button>}
+export default function Home(){const[copied,setCopied]=React.useState(false);const[dark,setDark]=React.useState(false);React.useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light'},[dark]);function copyInstall(){void navigator.clipboard.writeText(installCommand);setCopied(true);window.setTimeout(()=>setCopied(false),1600)}return <main id="top">
+<nav className="nav shell" aria-label="Main navigation"><a className="brand" href="#top"><span className="brand-flower">✤</span><span>LOAM</span></a><div className="nav-links"><a href="#collection">Collection</a><a href="#principles">Notes</a><a href="/r/registry.json">Registry</a></div><ThemeToggle dark={dark} onChange={()=>setDark(v=>!v)}/></nav>
+<section className="hero shell"><div className="hero-index"><span>FIELD LIBRARY 01</span><span>REACT / TYPESCRIPT</span></div><div className="hero-title"><span className="hero-kicker">An open collection of interface objects</span><h1>Useful things,<br/><em>drawn with feeling.</em></h1></div><div className="hero-bottom"><p>Loam is a copy-paste component library shaped by old field guides, independent publishing, and the quiet intelligence of well-made tools.</p><a className="round-link" href="#collection" aria-label="Explore the collection"><ArrowRightIcon size={25} duration={.7}/></a></div><div className="field-study" aria-hidden="true"><span className="study-label">PLATE I · GROWTH / RESPONSE</span><div className="sun-disc"/><div className="contour contour-a"/><div className="contour contour-b"/><div className="contour contour-c"/><div className="stem"><i/><i/><i/><i/></div><span className="study-note">motion follows<br/>the gesture ↗</span></div></section>
+<section className="manifesto"><div className="shell"><span>01</span><p>Familiar primitives. <em>Unfamiliar presence.</em></p><span>EST. 2026</span></div></section>
+<section className="collection shell" id="collection"><header className="section-heading"><div><span className="kicker">THE COLLECTION / 001—007</span><h2>Objects for a<br/><em>living interface.</em></h2></div><p>The base vocabulary stays restrained: paper, ink, one seasonal color, and movement that explains what changed.</p></header><div className="specimen-list">
+<article className="specimen-row"><div className="specimen-meta"><span>001</span><h3>Button</h3><p>Press, don’t float.</p></div><div className="specimen-demo button-demo"><DemoButton>Begin a field note <ArrowRightIcon size={17}/></DemoButton><DemoButton quiet>Keep looking</DemoButton></div></article>
+<article className="specimen-row"><div className="specimen-meta"><span>002</span><h3>Input</h3><p>Focus creates contact.</p></div><div className="specimen-demo input-demo"><label htmlFor="specimen-input">Name this observation</label><Input id="specimen-input" placeholder="Something worth remembering…"/><small>Filed locally · editable anytime</small></div></article>
+<article className="specimen-row"><div className="specimen-meta"><span>003—004</span><h3>Switch / Tabs</h3><p>State should travel.</p></div><div className="specimen-demo paired-demo"><div className="switch-line"><span><b>Ambient sound</b><small>Rain and distant birds</small></span><Switch defaultChecked aria-label="Toggle ambient sound"/></div><Tabs defaultValue="seed"><TabsList><TabsTrigger value="seed">Seed</TabsTrigger><TabsTrigger value="tend">Tend</TabsTrigger><TabsTrigger value="grow">Grow</TabsTrigger></TabsList><TabsContent value="seed">Begin with the smallest useful thing.</TabsContent><TabsContent value="tend">Return often. Adjust with care.</TabsContent><TabsContent value="grow">Let the system expand naturally.</TabsContent></Tabs></div></article>
+<article className="specimen-row"><div className="specimen-meta"><span>005—006</span><h3>Dialog / Accordion</h3><p>Reveal with manners.</p></div><div className="specimen-demo paired-demo"><DialogPrimitive.Root><DialogPrimitive.Trigger asChild><DemoButton quiet>Open a thought <Layers size={16}/></DemoButton></DialogPrimitive.Trigger><DialogPrimitive.Portal><DialogPrimitive.Overlay className="dialog-overlay"/><DialogPrimitive.Content className="dialog-content"><DialogPrimitive.Close className="dialog-close" aria-label="Close"><X size={16}/></DialogPrimitive.Close><span className="kicker">FIELD NOTE / 06</span><DialogPrimitive.Title>Ideas need a little room.</DialogPrimitive.Title><DialogPrimitive.Description>This interruption arrives softly, holds attention, and leaves without making a scene.</DialogPrimitive.Description><DialogPrimitive.Close asChild><DemoButton>That feels right</DemoButton></DialogPrimitive.Close></DialogPrimitive.Content></DialogPrimitive.Portal></DialogPrimitive.Root><Accordion type="single" collapsible className="demo-accordion"><AccordionItem value="one"><AccordionTrigger>Why copy the code?</AccordionTrigger><AccordionContent>So every line stays yours to understand and reshape.</AccordionContent></AccordionItem><AccordionItem value="two"><AccordionTrigger>Does motion adapt?</AccordionTrigger><AccordionContent>Every interaction honors reduced-motion preferences.</AccordionContent></AccordionItem></Accordion></div></article>
+</div></section>
+<section className="principles shell" id="principles"><header><span className="kicker">FIELD NOTES / DESIGN LANGUAGE</span><h2>Flat in form.<br/><em>Tactile in time.</em></h2></header><div className="principle-grid">{[['01 / SURFACE','Depth is information.','Most elements remain flat. Contact states use a crisp 1–2px shift; overlays alone receive atmospheric depth.'],['02 / COLOR','Ink, paper, season.','Each composition starts with two colors. Accent is earned through meaning, never used to fill empty space.'],['03 / MOTION','Movement has a verb.','Press, travel, reveal, fold. Every animation describes an action and gracefully becomes still when asked.'],['04 / SYMBOL','A consistent hand.','Animated outline icons handle utility. A smaller set of Loam glyphs carries the library’s signature.']].map(([n,t,p])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></article>)}</div></section>
+<section className="install shell" id="install"><div className="install-copy"><span className="kicker">TAKE A SPECIMEN</span><h2>Own the object.<br/><em>Change the soil.</em></h2><p>Install with the shadcn CLI. The source lands in your project, ready to adapt.</p></div><button className="command" onClick={copyInstall}><code>{installCommand}</code><span><CopyIcon size={16}/> {copied?'Copied':'Copy'}</span></button></section>
+<footer className="footer"><div className="shell footer-top"><a className="brand" href="#top"><span className="brand-flower">✤</span>LOAM</a><p>A small component library for thoughtful digital work.</p><SparklesIcon size={28}/></div><div className="landscape" aria-hidden="true"><div className="landscape-sun"/><div className="hill hill-a"/><div className="hill hill-b"/><div className="hill hill-c"/><span>LOAM · MADE WITH INTENTION · 2026</span></div></footer></main>}

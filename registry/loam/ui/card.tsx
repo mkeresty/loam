@@ -6,8 +6,8 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(({ className, interactive = false, ...props }, ref) => <div ref={ref} className={clsx(
-  "rounded-[var(--loam-radius-lg)] border border-[var(--loam-ink)] bg-[var(--loam-surface)] text-[var(--loam-ink)] shadow-[4px_5px_0_var(--loam-ink)]",
-  interactive && "transition-[transform,box-shadow] duration-300 ease-[var(--loam-ease-spring)] hover:-translate-y-1 hover:-rotate-[.35deg] hover:shadow-[7px_9px_0_var(--loam-ink)] motion-reduce:transform-none motion-reduce:transition-none",
+  "rounded-[var(--loam-radius-md)] border border-[var(--loam-ink)] bg-[var(--loam-surface)] text-[var(--loam-ink)]",
+  interactive && "transition-[transform,background-color] duration-300 ease-[var(--loam-ease-spring)] hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--loam-surface)_82%,var(--loam-butter))] motion-reduce:transform-none motion-reduce:transition-none",
   className
 )} {...props} />)
 Card.displayName = "Card"
