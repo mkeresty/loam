@@ -2,17 +2,17 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "textarea",
   "title": "Textarea",
-  "description": "A ruled editorial writing surface.",
+  "description": "An open editorial writing surface.",
   "dependencies": [
     "clsx"
   ],
   "registryDependencies": [
-    "loam-theme"
+    "mkeresty/loam/loam-theme"
   ],
   "files": [
     {
       "path": "registry/loam/ui/textarea.tsx",
-      "content": "import * as React from 'react'\nimport { clsx } from 'clsx'\nconst Textarea=React.forwardRef<HTMLTextAreaElement,React.ComponentProps<'textarea'>>(({className,...props},ref)=><textarea ref={ref} className={clsx('min-h-28 w-full resize-y border-0 border-b border-[var(--loam-ink)] bg-[repeating-linear-gradient(transparent,transparent_31px,var(--loam-line)_32px)] px-0 py-1 font-serif text-base leading-8 text-[var(--loam-ink)] caret-[var(--loam-clay)] outline-none transition-[border-color,border-width] placeholder:italic placeholder:text-[var(--loam-ink-soft)] focus:border-b-2 focus:border-[var(--loam-clay)] disabled:opacity-50 motion-reduce:transition-none',className)} {...props}/>)\nTextarea.displayName='Textarea'\nexport { Textarea }\n",
+      "content": "import * as React from 'react'\nimport { clsx } from 'clsx'\nconst Textarea=React.forwardRef<HTMLTextAreaElement,React.ComponentProps<'textarea'>>(({className,...props},ref)=><textarea ref={ref} className={clsx('min-h-28 w-full resize-y rounded-[var(--loam-radius-md)] border border-[var(--loam-ink)] bg-transparent px-4 py-3 font-serif text-base leading-7 text-[var(--loam-ink)] caret-[var(--loam-clay)] outline-none transition-colors placeholder:italic placeholder:text-[var(--loam-ink-soft)] focus:border-[var(--loam-clay)] disabled:opacity-50 motion-reduce:transition-none',className)} {...props}/>)\nTextarea.displayName='Textarea'\nexport { Textarea }\n",
       "type": "registry:ui"
     }
   ],

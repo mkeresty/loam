@@ -7,7 +7,7 @@
     "clsx"
   ],
   "registryDependencies": [
-    "loam-theme"
+    "mkeresty/loam/loam-theme"
   ],
   "files": [
     {

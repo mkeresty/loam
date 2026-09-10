@@ -16,7 +16,7 @@ import { Tabs,TabsContent,TabsList,TabsTrigger } from '../registry/loam/ui/tabs'
 import { Checkbox } from '../registry/loam/ui/checkbox';
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger } from '../registry/loam/ui/tooltip';
 import { components } from '../lib/components';
-const installCommand='npx shadcn@latest add https://loam-ui.chalky-dill-5956.chatgpt.site/r/button.json';
+const installCommand='npx shadcn@latest add mkeresty/loam/button';
 type DemoButtonProps=React.ComponentPropsWithoutRef<'button'>&{quiet?:boolean};
 const DemoButton=React.forwardRef<HTMLButtonElement,DemoButtonProps>(({children,quiet,className='',...props},ref)=><button ref={ref} className={`demo-button ${quiet?'demo-button--quiet':''} ${className}`} {...props}>{children}</button>); DemoButton.displayName='DemoButton';
 function ThemeToggle({dark,onChange}:{dark:boolean;onChange:()=>void}){return <button className="theme-toggle" onClick={onChange} aria-label={`Use ${dark?'light':'dark'} theme`}><span className="theme-toggle-track"><span className="theme-toggle-thumb">{dark?<MoonStarIcon size={14}/>:<SunIcon size={14}/>}</span></span><span>{dark?'Night':'Day'}</span></button>}
