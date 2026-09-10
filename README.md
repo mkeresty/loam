@@ -27,3 +27,9 @@ npx shadcn@latest add https://YOUR-DOMAIN/r/dialog.json
 ```
 
 The components expect Tailwind CSS and a shadcn-compatible project. Each item resolves the shared `loam-theme` token item automatically.
+
+Cards are intentionally still by default. Opt into the tactile hover treatment only for interactive cards:
+
+```tsx
+<Card interactive>...</Card>
+```
